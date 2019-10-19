@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:orientation="vertical"
+        tools:context=".SubActivity"
+        android:background="@color/colorAppBackground">
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/subTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pocket PT"
+            android:textAlignment="center"
+            android:textColor="@color/colorAppTheme"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_weight="15" />
+
+        <EditText
+            android:id="@+id/nameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="3"
+            android:ems="10"
+            android:hint="이름"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/ageEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="3"
+            android:ems="10"
+            android:hint="나이"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/heightEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="3"
+            android:ems="10"
+            android:hint="키(cm)"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/weightEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="3"
+            android:ems="10"
+            android:hint="체중(kg)"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/goalEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="목표"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/timesSpinnerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_weight="30"
+            android:text="1주일 운동 횟수"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:backgroundTintMode="add"
+            android:backgroundTint="@color/colorAppTheme"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="150dp"
+            android:id="@+id/timesSpinner"
+            android:layout_width="80dp"
+            android:minWidth="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/sexSpinnerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:text="성별"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/sexSpinner"
+            android:backgroundTint="@color/colorAppTheme"
+            android:layout_width="80dp"
+            android:minWidth="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="150dp"
+            android:layout_weight="30"
+            android:backgroundTintMode="add"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="120dp"
+            android:layout_weight="3"
+            android:backgroundTint="@color/colorLightWords"
+            android:textColor="@color/colorAppTheme"
+            android:text="등록"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</ScrollView>
