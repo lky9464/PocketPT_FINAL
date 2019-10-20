@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <ImageView
+        android:id="@+id/mhEquipImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/item_liner"
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mhEquipImage"
+        app:layout_constraintTop_toBottomOf="@+id/mhEqNameTxt"
+        app:srcCompat="@color/colorAppTheme"
+        tools:srcCompat="@color/colorAppTheme" />
+
+    <TextView
+        android:textColor="@color/colorAppTheme"
+        android:id="@+id/mhEqNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="기구이름"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/mhEquipImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mhPartTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="운동부위"
+        app:layout_constraintStart_toEndOf="@+id/mhEquipImage"
+        app:layout_constraintTop_toBottomOf="@+id/item_liner" />
+
+    <TextView
+        android:id="@+id/mhImportanceTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="중요도"
+        app:layout_constraintStart_toEndOf="@+id/mhPartTxt"
+        app:layout_constraintTop_toBottomOf="@+id/item_liner" />
+</android.support.constraint.ConstraintLayout>

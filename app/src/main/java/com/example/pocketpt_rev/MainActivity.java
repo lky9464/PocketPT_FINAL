@@ -29,9 +29,7 @@ public class MainActivity extends AppCompatActivity {
     String userAgeM, userHeightM, userWeightM, userTimesM;
 
 
-    ArrayList<String> wholeExList;              // AR Fragment에서 받는 모든 기구 정보.
-    ArrayList<String> dayExList;                // 모든 기구 정보에서 각 날짜 단위의 루틴을 받을 ArrayList
-    ArrayList<ArrayList<String>> weekExList;    // 하루의 dayExList가 작성되는 즉시 하루단위로 루틴을 받을 ArrayList
+    ArrayList<String> wholeExList;     // 모든 화면에서 다루는 기구 정보를 담는다. AR Fragment에서 받는 기구도 이 배열로 보낸다.
 
     private BackPressCloseHandler backPressCloseHandler;
 
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         setFragment(homeFragment);
 
-        // 여기서는 임의로 dayExList에 하루 단위 기구 정보를 넣어준다. 끝나는 '//END//' 지점까지 알고리즘을 적용하여 루틴을 작성.
+        /// 임의의 운동기구 배열
         wholeExList = new ArrayList<>();
 
         for(int i = 1; i <= 4; i++)
@@ -104,9 +102,7 @@ public class MainActivity extends AppCompatActivity {
                         default: return false;
 
                 }
-
             }
-
         });
 
         // Just Ask Exit Toast

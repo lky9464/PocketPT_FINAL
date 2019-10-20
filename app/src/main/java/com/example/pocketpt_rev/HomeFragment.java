@@ -84,7 +84,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(timesArr.get(position) != "선택") {
-                    Toast.makeText(getActivity(),timesArr.get(position)+"일차 루틴입니다." , Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(),timesArr.get(position)+"일차 루틴입니다." , Toast.LENGTH_SHORT).show();
                     listView_pos = position;
 
                     // tmp Algorithm
@@ -141,6 +141,7 @@ public class HomeFragment extends Fragment {
                     // END //
 
 
+                    // Let's Set Custom ListView
                     ArrayList<RoutineData> rItemFactor = new ArrayList<>();
 
                     for(int i = 0; i < aDayList.size(); i++){
