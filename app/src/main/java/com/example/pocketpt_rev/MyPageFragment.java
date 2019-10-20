@@ -86,9 +86,9 @@ public class MyPageFragment extends Fragment {
         editInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SubActivity.class);
+                Intent sintent = new Intent(getContext(), SubActivity.class);
 
-                startActivity(intent);
+                startActivity(sintent);
             }
         });
 

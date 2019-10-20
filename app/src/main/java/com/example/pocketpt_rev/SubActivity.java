@@ -121,7 +121,6 @@ public class SubActivity extends AppCompatActivity {
 
                     startActivity(intent);
 
-
                 }
                 finish();
             }
