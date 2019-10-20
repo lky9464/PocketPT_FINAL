@@ -27,20 +27,22 @@ public class HomeFragment extends Fragment {
 
     TextView home_goalTxt;
     Spinner daySelector;
+    Button settingsBtn;
+    TextView yuShowTxt, muShowTxt;
+    ListView routineList;
 
     ArrayList<String> timesArr;
     ArrayAdapter<String> selectorArrAdapter;
 
-    ArrayList<String> finalizedEquipArr = new ArrayList<>();
+    ArrayList<StaticData> finalizedEquipArr = new ArrayList<>();
 
-    ListView routineList;
     int listView_pos;
 
     // RoutineData routineData = new RoutineData();
     // ArrayList<RoutineData> rItemFactor = new ArrayList<>();
-    ArrayList aDayList = new ArrayList<>();
+    ArrayList<StaticData> aDayList = new ArrayList<>();
 
-    Button settingsBtn;
+//
 
     public HomeFragment() {
         // Required empty public constructor
@@ -94,9 +96,11 @@ public class HomeFragment extends Fragment {
                         aDayList.add(finalizedEquipArr.get(1));
                         aDayList.add(finalizedEquipArr.get(2));
                         aDayList.add(finalizedEquipArr.get(3));
+                        aDayList.add(finalizedEquipArr.get(4));
 
                     } else if(listView_pos == 2){
                         aDayList.clear();
+                        aDayList.add(finalizedEquipArr.get(4));
                         aDayList.add(finalizedEquipArr.get(0));
                         aDayList.add(finalizedEquipArr.get(1));
                         aDayList.add(finalizedEquipArr.get(3));
@@ -106,11 +110,8 @@ public class HomeFragment extends Fragment {
                         aDayList.add(finalizedEquipArr.get(1));
                         aDayList.add(finalizedEquipArr.get(0));
                         aDayList.add(finalizedEquipArr.get(2));
-                        aDayList.add(finalizedEquipArr.get(3));
                     }else if(listView_pos == 4){
                         aDayList.clear();
-                        aDayList.add(finalizedEquipArr.get(1));
-                        aDayList.add(finalizedEquipArr.get(0));
                         aDayList.add(finalizedEquipArr.get(3));
                         aDayList.add(finalizedEquipArr.get(2));
                     }else if(listView_pos == 5){
@@ -119,12 +120,10 @@ public class HomeFragment extends Fragment {
                         aDayList.add(finalizedEquipArr.get(0));
                         aDayList.add(finalizedEquipArr.get(1));
                         aDayList.add(finalizedEquipArr.get(3));
+                        aDayList.add(finalizedEquipArr.get(4));
                     }else if(listView_pos == 6){
                         aDayList.clear();
                         aDayList.add(finalizedEquipArr.get(2));
-                        aDayList.add(finalizedEquipArr.get(0));
-                        aDayList.add(finalizedEquipArr.get(3));
-                        aDayList.add(finalizedEquipArr.get(1));
                     }else if(listView_pos == 7){
                         aDayList.clear();
                         aDayList.add(finalizedEquipArr.get(3));
@@ -133,10 +132,7 @@ public class HomeFragment extends Fragment {
                         aDayList.add(finalizedEquipArr.get(2));
                     }else{
                         aDayList = new ArrayList<>();
-                        aDayList.add("9999");
-                        aDayList.add("9999");
-                        aDayList.add("9999");
-                        aDayList.add("9999");
+                        aDayList.add(finalizedEquipArr.get(0));
                     }
                     // END //
 
@@ -146,37 +142,10 @@ public class HomeFragment extends Fragment {
 
                     for(int i = 0; i < aDayList.size(); i++){
                         RoutineData routineData = new RoutineData();
-                        switch (aDayList.get(i).toString()){
-                            case "운동기구1":
-                                routineData.exName = "운동1";
-                                routineData.exSet = "1세트";
-                                routineData.exTimes = "1회";
-                                rItemFactor.add(routineData);
-                                break;
-                            case "운동기구2":
-
-                                routineData.exName = "운동2";
-                                routineData.exSet = "2세트";
-                                routineData.exTimes = "2회";
-                                rItemFactor.add(routineData);
-                                break;
-                            case "운동기구3":
-
-                                routineData.exName = "운동3";
-                                routineData.exSet = "3세트";
-                                routineData.exTimes = "3회";
-                                rItemFactor.add(routineData);
-                                break;
-                            case "운동기구4":
-
-                                routineData.exName = "운동4";
-                                routineData.exSet = "4세트";
-                                routineData.exTimes = "4회";
-                                rItemFactor.add(routineData);
-                                break;
-                            default: break;
-                        }
-
+                        routineData.exName = finalizedEquipArr.get(i).stExName;
+                        routineData.exSet = finalizedEquipArr.get(i).stExSet;
+                        routineData.exTimes = finalizedEquipArr.get(i).stExTimes;
+                        rItemFactor.add(routineData);
                     }
                     RoutineListAdapter mrAdapter = new RoutineListAdapter(rItemFactor);
                     routineList.setAdapter(mrAdapter);
@@ -197,6 +166,43 @@ public class HomeFragment extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(settingsFragment);
             }
         });
+
+        String tmpH = ((MainActivity)getActivity()).userHeightM;
+        String tmpW = ((MainActivity)getActivity()).userWeightM;
+
+        Double tmpHeight = Double.parseDouble(tmpH);
+        double height_cmtom = tmpHeight/100.0;
+        Double tmpWeight = Double.parseDouble(tmpW);
+
+        double tmpBMI = tmpWeight / (height_cmtom*height_cmtom);
+
+        int yuTime = 0;
+        int muTime = 0;
+
+        Double dYuTime = new Double(yuTime);
+        Double dMuTime = new Double(muTime);
+
+        yuShowTxt = frameLayout.findViewById(R.id.yuShowText);
+        muShowTxt = frameLayout.findViewById(R.id.muShowText);
+
+        // 유산소, 무산소 운동 시간 계산.
+        if(tmpBMI < 20.0) {
+            muTime = 15;
+            yuTime = 55;
+            yuShowTxt.setText("유산소운동 : " + yuTime + "분");
+            muShowTxt.setText("무산소운동 : " + muTime + "분");
+        }
+        else{
+            dMuTime = (tmpBMI-20)*2.0 + 15.0;
+            dYuTime = 70.0 - dMuTime;
+
+            muTime = dMuTime.intValue();
+            yuTime = dYuTime.intValue();
+
+            yuShowTxt.setText("유산소운동 : " + muTime + "분");
+            muShowTxt.setText("무산소운동 : " + yuTime + "분");
+        }
+
 
         return frameLayout;
     }

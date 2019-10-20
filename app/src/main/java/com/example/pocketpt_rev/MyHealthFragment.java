@@ -1,13 +1,18 @@
 package com.example.pocketpt_rev;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -19,9 +24,12 @@ import java.util.ArrayList;
 public class MyHealthFragment extends Fragment {
 
     ListView myHealthListView;
+    Button lvEditBtn;
 
     // MainActivity의 기구 정보 복사할 배열
-    ArrayList<String> mainActEqArr;
+    ArrayList<StaticData> mainActEqArr;
+
+    MyHealthListAdapter myHealthListAdapter;
 
     public MyHealthFragment() {
         // Required empty public constructor
@@ -37,7 +45,7 @@ public class MyHealthFragment extends Fragment {
         myHealthListView = frameLayout.findViewById(R.id.myHealthListView);
 
 
-        mainActEqArr = new ArrayList<>();
+        mainActEqArr = new ArrayList<StaticData>();
 
         // Main Activity의 모든 기구 정보 복사
         for(int i = 0; i < (((MainActivity)getActivity()).wholeExList).size(); i++)
@@ -47,51 +55,71 @@ public class MyHealthFragment extends Fragment {
 
         for (int i = 0; i < mainActEqArr.size(); i++){
             MyHealthData myHealthData = new MyHealthData();
-            switch (mainActEqArr.get(i)){
-                case "운동기구1":
-                    myHealthData.mhEqName = "운동기구1";
-                    myHealthData.mhParts = "부위1";
-                    myHealthData.mhImportance = "10";
-                    myHealthData.mhEquipID = R.drawable.equipment1;
-                    mhItemFactor.add(myHealthData);
-                    break;
-                case "운동기구2":
-                    myHealthData.mhEqName = "운동기구2";
-                    myHealthData.mhParts = "부위2";
-                    myHealthData.mhImportance = "9";
-                    myHealthData.mhEquipID = R.drawable.equipment2;
-                    mhItemFactor.add(myHealthData);
-                    break;
-                case "운동기구3":
-                    myHealthData.mhEqName = "운동기구3";
-                    myHealthData.mhParts = "부위3";
-                    myHealthData.mhImportance = "8";
-                    myHealthData.mhEquipID = R.drawable.equipment3;
-                    mhItemFactor.add(myHealthData);
-                    break;
-                case "운동기구4":
-                    myHealthData.mhEqName = "운동기구4";
-                    myHealthData.mhParts = "부위4";
-                    myHealthData.mhImportance = "7";
-                    myHealthData.mhEquipID = R.drawable.equipment4;
-                    mhItemFactor.add(myHealthData);
-                    break;
-                case "운동기구5":
-                    myHealthData.mhEqName = "운동기구5";
-                    myHealthData.mhParts = "부위5";
-                    myHealthData.mhImportance = "6";
-                    myHealthData.mhEquipID = R.drawable.equipment5;
-                    mhItemFactor.add(myHealthData);
-                    break;
-                    default: break;
-            }
-
+            myHealthData.mhEqName = mainActEqArr.get(i).stExName;
+            myHealthData.mhParts = mainActEqArr.get(i).stExPart;
+            myHealthData.mhImportance = mainActEqArr.get(i).stExImportance;
+            myHealthData.mhEquipID = mainActEqArr.get(i).stEquipImg;
+            mhItemFactor.add(myHealthData);
         }
-        MyHealthListAdapter myHealthListAdapter = new MyHealthListAdapter(mhItemFactor);
+
+        myHealthListAdapter = new MyHealthListAdapter(mhItemFactor);
         myHealthListView.setAdapter(myHealthListAdapter);
+
+        lvEditBtn = frameLayout.findViewById(R.id.lvEditBtn);
+        lvEditBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyHealthEditFragment myHealthEditFragment = new MyHealthEditFragment();
+                ((MainActivity)getActivity()).replaceFragment(myHealthEditFragment);
+            }
+        });
+
+        myHealthListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                // Toast.makeText(getActivity(), ((MainActivity)getActivity()).wholeExList.get(position).stExName, Toast.LENGTH_SHORT).show();
+                // 삭제 버튼
+                OnClickHandler(position);
+                return false;
+            }
+        });
 
 
         return frameLayout;
     }
+
+    public void OnClickHandler(final int position)
+    {
+        final int pos = position;
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setTitle("삭제").setMessage("삭제하시겠어요?");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int id)
+            {
+                Toast.makeText(getActivity(), mainActEqArr.get(pos).stExName + "가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                ((MainActivity)getActivity()).wholeExList.remove(mainActEqArr.get(pos));
+                myHealthListAdapter.notifyDataSetChanged();
+
+                MyHealthFragment tmpMyHealthFragment = new MyHealthFragment();
+                ((MainActivity)getActivity()).replaceFragment(tmpMyHealthFragment);
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int id)
+            {
+                // Toast.makeText(getActivity(), "Cancel Click", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
 
 }

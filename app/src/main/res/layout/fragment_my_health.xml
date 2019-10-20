@@ -60,14 +60,14 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
-            android:background="@color/colorAppTheme"
-            android:textColor="@color/colorLightWords"
-            android:textStyle="bold"
             android:id="@+id/lvEditBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="목록 편집"
+            android:background="@color/colorAppTheme"
+            android:text="목록 추가"
+            android:textColor="@color/colorLightWords"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"

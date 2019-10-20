@@ -1,15 +1,18 @@
 package com.example.pocketpt_rev;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -46,6 +49,25 @@ public class SettingsFragment extends Fragment {
 
         settingsAdapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_expandable_list_item_1, settingsMenuList);
         settingsListView.setAdapter(settingsAdapter);
+
+
+        settingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0){
+
+                }else if(position == 1){
+
+                }else{
+                    Intent eIntent = new Intent(Intent.ACTION_SEND);
+                    eIntent.setType("plain/Text");
+                    eIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"lky9464@gmail.com"});
+                    eIntent.putExtra(Intent.EXTRA_SUBJECT, "<" + getString(R.string.app_name) + " " + getString(R.string.report) + ">");
+                    eIntent.putExtra(Intent.EXTRA_TEXT, "Version : " + getString(R.string.appVersion) + "\n기기명 : \n안드로이드 OS 버전 : \n문의내용 : ");
+                    startActivity(eIntent);
+                }
+            }
+        });
 
 
         stgBackBtn = frameLayout.findViewById(R.id.stgBackBtn);

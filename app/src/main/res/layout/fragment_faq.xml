@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".FAQFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.constraint.ConstraintLayout
@@ -13,40 +13,16 @@
 
         <TextView
             android:textColor="@color/colorAppTheme"
-            android:id="@+id/settingsTitle"
+            android:id="@+id/faqTitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Settings"
+            android:text="FAQ"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ListView
-            android:id="@+id/settingsListView"
-            android:layout_width="330dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.37"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
-
-        <Button
-            android:backgroundTint="@color/colorLightWords"
-            android:textColor="@color/colorAppTheme"
-            android:id="@+id/stgBackBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="뒤로"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.811"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsListView" />
 
         <ImageView
             android:id="@+id/liner___"
@@ -55,7 +31,7 @@
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/faqTitleTxt"
             app:srcCompat="@color/colorAppTheme"
             tools:src="@tools:sample/avatars" />
     </android.support.constraint.ConstraintLayout>
