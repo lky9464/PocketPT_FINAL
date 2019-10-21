@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
         // wholeExList가 다 비어있을 때만 디폴트 운동 추가 (앱 처음 깔았을 때.)
         if (arrLength == -1) {
-            for (int i = 1; i <= 14; i++) {
+            for (int i = 1; i <= 15; i++) {
                 StaticData staticData = new StaticData();
                 if (i == 1) {
                     staticData.stExName = "벤치프레스";
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                     staticData.stExName = "카프 레이즈";
                     staticData.stExSet = "5세트";
                     staticData.stExTimes = "15회";
-                    staticData.stExPart = "어깨";
+                    staticData.stExPart = "하체";
                     staticData.stExImportance = "4";
                     staticData.stEquipImg = R.drawable.calfraise;
                     wholeExList.add(staticData);
@@ -227,6 +227,14 @@ public class MainActivity extends AppCompatActivity {
                     staticData.stExPart = "팔";
                     staticData.stExImportance = "5";
                     staticData.stEquipImg = R.drawable.tricepsextension;
+                    wholeExList.add(staticData);
+                }else if(i == 15){
+                    staticData.stExName = "프론트 레이즈";
+                    staticData.stExSet = "5세트";
+                    staticData.stExTimes = "15회";
+                    staticData.stExPart = "어깨";
+                    staticData.stExImportance = "5";
+                    staticData.stEquipImg = R.drawable.frontraise;
                     wholeExList.add(staticData);
                 }
             }

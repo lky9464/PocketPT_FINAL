@@ -108,7 +108,7 @@ public class MyHealthFragment extends Fragment {
 
         builder.setTitle("삭제").setMessage("삭제하시겠어요?");
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+        builder.setPositiveButton("예", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int id)
             {
@@ -121,7 +121,7 @@ public class MyHealthFragment extends Fragment {
             }
         });
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int id)
             {

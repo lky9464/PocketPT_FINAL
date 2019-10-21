@@ -3,21 +3,23 @@
     package="com.example.pocketpt_rev">
 
     <application
-        android:largeHeap="true"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher_pocket"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_pocket_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".SubActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".StartActionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SubActivity" />
+        <activity android:name=".MainActivity"/>
+
     </application>
 
 </manifest>

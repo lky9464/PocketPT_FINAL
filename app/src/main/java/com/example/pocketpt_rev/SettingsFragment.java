@@ -44,7 +44,6 @@ public class SettingsFragment extends Fragment {
 
         settingsMenuList = new ArrayList<>();
         settingsMenuList.add("FAQ");
-        settingsMenuList.add("Q&A");
         settingsMenuList.add("개발자에게 문의");
 
         settingsAdapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_expandable_list_item_1, settingsMenuList);
@@ -56,9 +55,10 @@ public class SettingsFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
 
-                }else if(position == 1){
+                    FAQFragment faqFragment = new FAQFragment();
+                    ((MainActivity)getActivity()).replaceFragment(faqFragment);
 
-                }else{
+                }else if(position == 1){
                     Intent eIntent = new Intent(Intent.ACTION_SEND);
                     eIntent.setType("plain/Text");
                     eIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"lky9464@gmail.com"});
