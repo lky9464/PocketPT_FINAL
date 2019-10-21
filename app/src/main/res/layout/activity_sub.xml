@@ -12,7 +12,8 @@
         android:weightSum="100"
         android:orientation="vertical"
         tools:context=".SubActivity"
-        android:background="@color/colorAppBackground">
+        android:background="@color/colorAppBackground"
+        android:layout_gravity="top">
 
         <TextView
             android:layout_marginTop="30dp"
@@ -80,64 +81,83 @@
             android:ems="10"
             android:gravity="start|top"
             android:hint="목표"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="10dp"/>
 
-        <TextView
-            android:id="@+id/timesSpinnerTitle"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_weight="30"
-            android:text="1주일 운동 횟수"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+            android:layout_height="350dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="15">
 
-        <Spinner
-            android:backgroundTintMode="add"
-            android:backgroundTint="@color/colorAppTheme"
-            android:textAlignment="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="150dp"
-            android:id="@+id/timesSpinner"
-            android:layout_width="80dp"
-            android:minWidth="60dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="30" />
+            <TextView
+                android:id="@+id/sexSpinnerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="25dp"
+                android:layout_weight="30"
+                android:text="성별"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timesSpinnerTitle" />
 
-        <TextView
-            android:layout_marginTop="20dp"
-            android:id="@+id/sexSpinnerTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:text="성별"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+            <Spinner
+                android:id="@+id/sexSpinner"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="48dp"
+                android:layout_weight="30"
+                android:backgroundTint="@color/colorAppTheme"
+                android:backgroundTintMode="add"
+                android:minWidth="60dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timesSpinner" />
 
-        <Spinner
-            android:id="@+id/sexSpinner"
-            android:backgroundTint="@color/colorAppTheme"
-            android:layout_width="80dp"
-            android:minWidth="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="150dp"
-            android:layout_weight="30"
-            android:backgroundTintMode="add"
-            android:textAlignment="center" />
+            <TextView
+                android:id="@+id/timesSpinnerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="30"
+                android:text="1주일 운동 횟수"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/submitBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginBottom="120dp"
-            android:layout_weight="3"
-            android:backgroundTint="@color/colorLightWords"
-            android:textColor="@color/colorAppTheme"
-            android:text="등록"
-            android:textSize="20sp" />
+            <Spinner
+                android:id="@+id/timesSpinner"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="48dp"
+                android:layout_weight="30"
+                android:backgroundTint="@color/colorAppTheme"
+                android:backgroundTintMode="add"
+                android:minWidth="60dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="40dp"
+                android:layout_weight="3"
+                android:backgroundTint="@color/colorLightWords"
+                android:text="등록"
+                android:textColor="@color/colorAppTheme"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sexSpinner" />
+        </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
 </ScrollView>
