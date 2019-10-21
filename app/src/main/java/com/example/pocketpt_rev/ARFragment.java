@@ -1,6 +1,7 @@
 package com.example.pocketpt_rev;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -31,15 +32,19 @@ public class ARFragment extends Fragment {
         FrameLayout frameLayout =  (FrameLayout) inflater.inflate(R.layout.fragment_ar, container, false);
 
         // If AR Camera run -> add to 'haveEquipList'
-        haveEquipList = new ArrayList<String>();
-        for(int i = 1; i <= 16; i++)
-            haveEquipList.add("운동기구" + i);
+//        haveEquipList = new ArrayList<String>();
+//        for(int i = 1; i <= 16; i++)
+//            haveEquipList.add("운동기구" + i);
 
         // return EquipList in AR Fragment
 //        ((MainActivity)getActivity()).wholeExList = haveEquipList;
 
 
+        Intent intent = new Intent(getActivity(), UnityPlayerActivity.class);
+        startActivity(intent);
 
+        HomeFragment homeFragment = new HomeFragment();
+        ((MainActivity)getActivity()).replaceFragment(homeFragment);
 
         return frameLayout;
     }
