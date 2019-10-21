@@ -81,8 +81,20 @@ public class MyHealthFragment extends Fragment {
                 // Toast.makeText(getActivity(), ((MainActivity)getActivity()).wholeExList.get(position).stExName, Toast.LENGTH_SHORT).show();
                 // 삭제 버튼
                 OnClickHandler(position);
-                return false;
+                return true;
             }
+        });
+
+        myHealthListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ((MainActivity)getActivity()).myHealthItemIdx = position;
+
+                ExExplainFragment exExplainFragment = new ExExplainFragment();
+                ((MainActivity)getActivity()).replaceFragment(exExplainFragment);
+            }
+
         });
 
 
@@ -101,7 +113,7 @@ public class MyHealthFragment extends Fragment {
             public void onClick(DialogInterface dialog, int id)
             {
                 Toast.makeText(getActivity(), mainActEqArr.get(pos).stExName + "가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
-                ((MainActivity)getActivity()).wholeExList.remove(mainActEqArr.get(pos));
+                ((MainActivity)getActivity()).wholeExList.remove(pos);
                 myHealthListAdapter.notifyDataSetChanged();
 
                 MyHealthFragment tmpMyHealthFragment = new MyHealthFragment();

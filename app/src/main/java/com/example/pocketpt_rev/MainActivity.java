@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     private BackPressCloseHandler backPressCloseHandler;
 
+    public int myHealthItemIdx;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,12 +102,13 @@ public class MainActivity extends AppCompatActivity {
         callImpString = startPref.getString("ImpStringList", "");
         callImgString = startPref.getString("ImgStringList", "");
 
-        getExNameArr = new ArrayList<String>(Arrays.asList(callExString.split(" ")));
-        getExSetArr = new ArrayList<String>(Arrays.asList(callSetString.split(" ")));
-        getExTimesArr = new ArrayList<String>(Arrays.asList(callTimesString.split(" ")));
-        getExPartArr = new ArrayList<String>(Arrays.asList(callPartString.split(" ")));
-        getImpArr = new ArrayList<String>(Arrays.asList(callImpString.split(" ")));
-        getImgArr = new ArrayList<String>(Arrays.asList(callImgString.split(" ")));
+        getExNameArr = new ArrayList<String>(Arrays.asList(callExString.split(",")));
+        getExSetArr = new ArrayList<String>(Arrays.asList(callSetString.split(",")));
+        getExTimesArr = new ArrayList<String>(Arrays.asList(callTimesString.split(",")));
+        getExPartArr = new ArrayList<String>(Arrays.asList(callPartString.split(",")));
+        getImpArr = new ArrayList<String>(Arrays.asList(callImpString.split(",")));
+        getImgArr = new ArrayList<String>(Arrays.asList(callImgString.split(",")));
+
 
         int arrLength = startPref.getInt("ArrLength", -1);
 
@@ -245,8 +248,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -308,14 +309,14 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i < wholeExList.size(); i++) {
             arrLength = arrLength + 1;
             if (i != wholeExList.size()-1) {
-                exString = exString + (wholeExList.get(i).stExName + " ");
-                setString = setString + (wholeExList.get(i).stExSet + " ");
-                timesString = timesString + (wholeExList.get(i).stExTimes + " ");
-                partString = partString + (wholeExList.get(i).stExPart + " ");
-                impString = impString + (wholeExList.get(i).stExImportance + " ");
+                exString = exString + (wholeExList.get(i).stExName + ",");
+                setString = setString + (wholeExList.get(i).stExSet + ",");
+                timesString = timesString + (wholeExList.get(i).stExTimes + ",");
+                partString = partString + (wholeExList.get(i).stExPart + ",");
+                impString = impString + (wholeExList.get(i).stExImportance + ",");
 
                 String tmpImgString = wholeExList.get(i).stEquipImg.toString();
-                imgIdString = imgIdString + (tmpImgString + " ");
+                imgIdString = imgIdString + (tmpImgString + ",");
             }else{
                 exString = exString + wholeExList.get(i).stExName;
                 setString = setString + wholeExList.get(i).stExSet;

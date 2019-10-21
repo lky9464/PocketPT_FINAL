@@ -29,13 +29,13 @@
         tools:srcCompat="@color/colorAppTheme" />
 
     <TextView
-        android:textColor="@color/colorAppTheme"
         android:id="@+id/mhEqNameTxt"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="기구이름"
+        android:textColor="@color/colorAppTheme"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/mhEquipImage"
         app:layout_constraintTop_toTopOf="parent" />
