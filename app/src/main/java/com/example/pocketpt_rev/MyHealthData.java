@@ -5,5 +5,4 @@ public class MyHealthData {
     public String mhParts;
     public String mhImportance;
     public Integer mhEquipID;
-
 }
