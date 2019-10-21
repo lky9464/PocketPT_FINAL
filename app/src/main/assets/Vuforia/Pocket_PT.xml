@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="ShoulderPressMachine2" size="0.150000 0.082038" />
+    <ImageTarget name="ShoulderPressMachine1" size="0.150000 0.077965" />
+    <ImageTarget name="SeatedRowMachine2" size="0.150000 0.075893" />
+    <ImageTarget name="SeatedRowMachine1" size="0.150000 0.108854" />
+    <ImageTarget name="LegPressMachine2" size="0.150000 0.083636" />
+    <ImageTarget name="LegPressMachine1" size="0.150000 0.079197" />
+    <ImageTarget name="LegExtensionMachine2" size="0.150000 0.089488" />
+    <ImageTarget name="LegExtensionMachine1" size="0.150000 0.079639" />
+    <ImageTarget name="LegCurlMachine1" size="0.150000 0.076072" />
+    <ImageTarget name="LatPullDownMachine2" size="0.150000 0.073363" />
+    <ImageTarget name="LatPullDownMachine1" size="0.150000 0.109487" />
+    <ImageTarget name="HipAdductionMachine2" size="0.150000 0.089002" />
+    <ImageTarget name="ChestPressMachine2" size="0.150000 0.085352" />
+    <ImageTarget name="ChestPressMachine1" size="0.150000 0.076761" />
+    <ImageTarget name="ButterFlyMachine2" size="0.150000 0.088191" />
+    <ImageTarget name="ButterFlyMachine1" size="0.150000 0.112500" />
+    <ImageTarget name="ArmCurlMachine2" size="0.150000 0.087245" />
+    <ImageTarget name="ArmCurlMachine1" size="0.150000 0.078925" />
+  </Tracking>
+</QCARConfig>
